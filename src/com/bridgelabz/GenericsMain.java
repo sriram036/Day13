@@ -2,14 +2,19 @@ package com.bridgelabz;
 
 public class GenericsMain {
 
-    static <T>void display(T string){
-        System.out.println(string);
+    static <T extends Comparable<T>>T findMaxInteger(T x, T y, T z){
+        T max = x;
+        if (y.compareTo(max) > 0){
+            max = y;
+        }
+        if (z.compareTo(max) > 0){
+            max = z;
+        }
+        return max;
     }
 
     public static void main(String[] args) {
 
-        String string = "Welcome to Generic Program using method level generics.";
-
-        display(string);
+        System.out.println("Max number of given  integers is " + findMaxInteger(222,18,122));
     }
 }
