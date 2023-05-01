@@ -2,7 +2,7 @@ package com.bridgelabz;
 
 public class GenericsMain {
 
-    static <T extends Comparable<T>>T findMaxString(T x, T y, T z){
+    static <T extends Comparable<T>>void testMaximum(T x, T y, T z){
         T max = x;
         if (y.compareTo(max) > 0){
             max = y;
@@ -10,11 +10,15 @@ public class GenericsMain {
         if (z.compareTo(max) > 0){
             max = z;
         }
-        return max;
+        printMax(max);
+    }
+
+    static <T>void printMax(T max){
+        System.out.println("The max value from printMax method is "+ max);
     }
 
     public static void main(String[] args) {
 
-        System.out.println("Max number of given  integers is " + findMaxString("Apple", "Peach", "Banana"));
+        testMaximum(5, 3, 82);
     }
 }
